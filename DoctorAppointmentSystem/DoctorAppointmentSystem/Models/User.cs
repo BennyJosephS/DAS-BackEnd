@@ -8,4 +8,5 @@ public class User
     public string Gender { get; set; }
     public string Email { get; set; }
     public int PhoneNumber { get; set; }
+    public string PasswordHash { get; set; }
 }
