@@ -1,6 +1,17 @@
+using DoctorAppointmentSystem.Data;
+using DoctorAppointmentSystem.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var JwtSetting = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>()!;
+
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 
 builder.Services.AddControllers();
