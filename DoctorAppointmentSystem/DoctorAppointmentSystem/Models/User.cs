@@ -15,5 +15,5 @@ public class User
     
     public string RefreshToken { get; set; }
     
-    public DateTime RefreshTokenExpiryAt { get; set; }
+    public DateTime? RefreshTokenExpiryAt { get; set; }
 }
