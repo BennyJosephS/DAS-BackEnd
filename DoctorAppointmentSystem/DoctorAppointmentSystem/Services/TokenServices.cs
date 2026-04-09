@@ -29,7 +29,7 @@ public class TokenServices
 
         var Credentails = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var expiryTime = new DateTime().AddMinutes(__jwt.ExpiryMinutes);
+        var expiryTime = DateTime.UtcNow.AddMinutes(__jwt.ExpiryMinutes);
 
         var token = new JwtSecurityToken(
             issuer: __jwt.Issuer,
@@ -52,6 +52,6 @@ public class TokenServices
     
     public DateTime GetRefreshTokenExpiry()
     {
-        return DateTime.UtcNow.AddDays(__jwt.RefreshTokenExpiryDays);
+        return DateTime.UtcNow.AddDays(__jwt.RefreshTokenExpiryTime);
     }
 }
