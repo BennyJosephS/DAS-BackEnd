@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoctorAppointmentSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95df2f2a59bd9eb206f467e13139e2ea2b9e2194")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf5b9b58b07dfe82c91a000bf4407b6cfd0726f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoctorAppointmentSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoctorAppointmentSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
