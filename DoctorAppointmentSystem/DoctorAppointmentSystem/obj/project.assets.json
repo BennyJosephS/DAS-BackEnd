@@ -452,11 +452,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sriraam/RiderProjects/DoctorAppointmentSystem/DoctorAppointmentSystem/DoctorAppointmentSystem.csproj",
+      "projectUniqueName": "/Users/sriraam/RiderProjects/DAS-BackEnd/DoctorAppointmentSystem/DoctorAppointmentSystem/DoctorAppointmentSystem.csproj",
       "projectName": "DoctorAppointmentSystem",
-      "projectPath": "/Users/sriraam/RiderProjects/DoctorAppointmentSystem/DoctorAppointmentSystem/DoctorAppointmentSystem.csproj",
+      "projectPath": "/Users/sriraam/RiderProjects/DAS-BackEnd/DoctorAppointmentSystem/DoctorAppointmentSystem/DoctorAppointmentSystem.csproj",
       "packagesPath": "/Users/sriraam/.nuget/packages/",
-      "outputPath": "/Users/sriraam/RiderProjects/DoctorAppointmentSystem/DoctorAppointmentSystem/obj/",
+      "outputPath": "/Users/sriraam/RiderProjects/DAS-BackEnd/DoctorAppointmentSystem/DoctorAppointmentSystem/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sriraam/.nuget/NuGet/NuGet.Config"
