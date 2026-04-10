@@ -53,7 +53,6 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Appointment>(entity =>
         {
             entity.HasKey(a => a.Id);
-            entity.Property(a => a.Email).IsRequired().HasMaxLength(100);
             entity.Property(a => a.Description).HasMaxLength(500);
             entity.Property(a => a.Status).IsRequired().HasMaxLength(20);
 
