@@ -42,11 +42,25 @@ namespace DoctorAppointmentSystem.Controllers
             return Ok(new { message = "add new doctor" });
         }
 
-        // [Authorize]
-        // [HttpGet("searchbyname")]
-        // public async Task<IActionResult> SearchbyName([FromQuery] string? name, [FromQuery] string? spec)
-        // {
-        //     
-        // }
+        [Authorize]
+        [HttpGet("SearchByNameAndSpec")]
+        public async Task<IActionResult> SearchbyNameAndSpec([FromQuery] string? name, [FromQuery] string? spec)
+        {
+            var users = _Db.Doctors.AsQueryable();
+
+            if (!string.IsNullOrEmpty(spec))
+            {
+                users.Where(u => u.Speciality.ToLower() == spec.ToLower());
+            }
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                users.Where(u => u.Name.ToLower() == name.ToLower());
+            }
+
+            var listss = users.ToList();
+
+            return Ok(listss);
+        }
     }
 }
