@@ -1,4 +1,4 @@
-using DoctorAppointmentSystem.Data;
+
 using DoctorAppointmentSystem.Models;
 using DoctorAppointmentSystem.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -24,7 +24,7 @@ namespace DoctorAppointmentSystem.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
-            var userifexsist =await _Db.__User.AnyAsync(u => u.Email == request.Email);
+            var userifexsist =await _Db.Users.AnyAsync(u => u.Email == request.Email);
 
             if (userifexsist)
             {
@@ -44,7 +44,7 @@ namespace DoctorAppointmentSystem.Controllers
                 Role = "User"
             };
 
-            await _Db.__User.AddAsync(user);
+            await _Db.Users.AddAsync(user);
             await _Db.SaveChangesAsync();
             return Ok(new { message = "registered" });
         }
@@ -52,7 +52,7 @@ namespace DoctorAppointmentSystem.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var user = await _Db.__User.FirstOrDefaultAsync(u => u.Email == request.Email);
+            var user = await _Db.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
 
             if (user == null)
             {
@@ -61,7 +61,7 @@ namespace DoctorAppointmentSystem.Controllers
 
             var passwordiscorrect = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
 
-            if (passwordiscorrect)
+            if (!passwordiscorrect)
             {
                 return BadRequest(new { message = "enter the right credentials" });
             }
@@ -90,7 +90,7 @@ namespace DoctorAppointmentSystem.Controllers
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefershRequest request)
         {
-            var userdetail = await _Db.__User.FirstOrDefaultAsync(u =>
+            var userdetail = await _Db.Users.FirstOrDefaultAsync(u =>
                 u.RefreshToken == request.RefreshToken);
 
             if (userdetail == null)
@@ -126,7 +126,7 @@ namespace DoctorAppointmentSystem.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> logout([FromBody] RefershRequest request)
         {
-            var userdetail = await _Db.__User.FirstOrDefaultAsync(u =>
+            var userdetail = await _Db.Users.FirstOrDefaultAsync(u =>
         
                 u.RefreshToken == request.RefreshToken
             );
